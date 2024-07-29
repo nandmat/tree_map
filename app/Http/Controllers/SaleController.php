@@ -42,7 +42,7 @@ class SaleController extends Controller
             ->whereBetween('sales.created_at', [$filters['start_date'], $filters['end_date']])
             ->where('cars.brand_id', intval($filters['brand_id']))
             ->groupBy('car_id')
-            // ->orderBy('amount', 'desc')
+            ->orderBy('amount', 'asc')
             ->limit(10)
             ->get();
 
